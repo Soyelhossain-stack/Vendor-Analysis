@@ -1,0 +1,50 @@
+2025-09-10 16:45:28,836 - INFO - Creating vendor summary table ......
+2025-09-10 16:45:41,130 - INFO -    VendorNumber                               VendorName  Brand                   Description  PurchasePrice  ActualPrice  ... TotalPurchaseDollars  TotalSalesQuantity  TotalSalesDollar  TotalSalesPrice  TotalExciseTax  FreightCost
+0             2  IRA GOLDMAN AND WILLIAMS, LLP            90085  Ch Lilian 09 Ladouys St Este          23.86        36.99  ...               190.88                18.0            665.82           295.92            2.00        27.08
+1             2  IRA GOLDMAN AND WILLIAMS, LLP            90609  Flavor Essence Variety 5 Pak          17.00        24.99  ...              5440.00                24.0            599.76           449.82            0.52        27.08
+2            54              AAPER ALCOHOL & CHEMICAL CO    990       Ethyl Alcohol 200 Proof         105.07       134.49  ...               105.07                 NaN               NaN              NaN             NaN         0.48
+3            60              ADAMBA IMPORTS INTL INC        771   Bak's Krupnik Honey Liqueur          11.44        14.99  ...               446.16                47.0            704.53           494.67           37.01       367.52
+4            60              ADAMBA IMPORTS INTL INC       3401                  Vesica Vodka          11.10        14.99  ...                66.60                 NaN               NaN              NaN             NaN       367.52
+
+[5 rows x 14 columns]
+2025-09-10 16:45:41,138 - INFO - Cleaning data ......
+2025-09-10 16:47:56,270 - INFO - Creating vendor summary table ......
+2025-09-10 16:48:08,902 - INFO -    VendorNumber                               VendorName  Brand                   Description  PurchasePrice  ActualPrice  ... TotalPurchaseDollars  TotalSalesQuantity  TotalSalesDollar  TotalSalesPrice  TotalExciseTax  FreightCost
+0             2  IRA GOLDMAN AND WILLIAMS, LLP            90085  Ch Lilian 09 Ladouys St Este          23.86        36.99  ...               190.88                18.0            665.82           295.92            2.00        27.08
+1             2  IRA GOLDMAN AND WILLIAMS, LLP            90609  Flavor Essence Variety 5 Pak          17.00        24.99  ...              5440.00                24.0            599.76           449.82            0.52        27.08
+2            54              AAPER ALCOHOL & CHEMICAL CO    990       Ethyl Alcohol 200 Proof         105.07       134.49  ...               105.07                 NaN               NaN              NaN             NaN         0.48
+3            60              ADAMBA IMPORTS INTL INC        771   Bak's Krupnik Honey Liqueur          11.44        14.99  ...               446.16                47.0            704.53           494.67           37.01       367.52
+4            60              ADAMBA IMPORTS INTL INC       3401                  Vesica Vodka          11.10        14.99  ...                66.60                 NaN               NaN              NaN             NaN       367.52
+
+[5 rows x 14 columns]
+2025-09-10 16:48:08,911 - INFO - Cleaning data ......
+2025-09-10 16:50:34,720 - INFO - Creating vendor summary table ......
+2025-09-10 16:50:47,472 - INFO -    VendorNumber                               VendorName  Brand                   Description  PurchasePrice  ActualPrice  ... TotalPurchaseDollars  TotalSalesQuantity  TotalSalesDollar  TotalSalesPrice  TotalExciseTax  FreightCost
+0             2  IRA GOLDMAN AND WILLIAMS, LLP            90085  Ch Lilian 09 Ladouys St Este          23.86        36.99  ...               190.88                18.0            665.82           295.92            2.00        27.08
+1             2  IRA GOLDMAN AND WILLIAMS, LLP            90609  Flavor Essence Variety 5 Pak          17.00        24.99  ...              5440.00                24.0            599.76           449.82            0.52        27.08
+2            54              AAPER ALCOHOL & CHEMICAL CO    990       Ethyl Alcohol 200 Proof         105.07       134.49  ...               105.07                 NaN               NaN              NaN             NaN         0.48
+3            60              ADAMBA IMPORTS INTL INC        771   Bak's Krupnik Honey Liqueur          11.44        14.99  ...               446.16                47.0            704.53           494.67           37.01       367.52
+4            60              ADAMBA IMPORTS INTL INC       3401                  Vesica Vodka          11.10        14.99  ...                66.60                 NaN               NaN              NaN             NaN       367.52
+
+[5 rows x 14 columns]
+2025-09-10 16:50:47,482 - INFO - Cleaning data ......
+2025-09-10 16:51:50,642 - INFO - Creating vendor summary table ......
+2025-09-10 16:52:02,463 - INFO -    VendorNumber                               VendorName  Brand                   Description  PurchasePrice  ActualPrice  ... TotalPurchaseDollars  TotalSalesQuantity  TotalSalesDollar  TotalSalesPrice  TotalExciseTax  FreightCost
+0             2  IRA GOLDMAN AND WILLIAMS, LLP            90085  Ch Lilian 09 Ladouys St Este          23.86        36.99  ...               190.88                18.0            665.82           295.92            2.00        27.08
+1             2  IRA GOLDMAN AND WILLIAMS, LLP            90609  Flavor Essence Variety 5 Pak          17.00        24.99  ...              5440.00                24.0            599.76           449.82            0.52        27.08
+2            54              AAPER ALCOHOL & CHEMICAL CO    990       Ethyl Alcohol 200 Proof         105.07       134.49  ...               105.07                 NaN               NaN              NaN             NaN         0.48
+3            60              ADAMBA IMPORTS INTL INC        771   Bak's Krupnik Honey Liqueur          11.44        14.99  ...               446.16                47.0            704.53           494.67           37.01       367.52
+4            60              ADAMBA IMPORTS INTL INC       3401                  Vesica Vodka          11.10        14.99  ...                66.60                 NaN               NaN              NaN             NaN       367.52
+
+[5 rows x 14 columns]
+2025-09-10 16:52:02,472 - INFO - Cleaning data ......
+2025-09-10 16:52:02,477 - INFO -    VendorNumber                     VendorName  Brand                   Description  PurchasePrice  ActualPrice  Volume  ...  TotalSalesPrice  TotalExciseTax  FreightCost  GrossProfit  ProfitMargin  StockTurnover  SalesPurchaseRatio
+0             2  IRA GOLDMAN AND WILLIAMS, LLP  90085  Ch Lilian 09 Ladouys St Este          23.86        36.99   750.0  ...           295.92            2.00        27.08       474.94     71.331591       2.250000            3.488160
+1             2  IRA GOLDMAN AND WILLIAMS, LLP  90609  Flavor Essence Variety 5 Pak          17.00        24.99   162.5  ...           449.82            0.52        27.08     -4840.24   -807.029478       0.075000            0.110250
+2            54    AAPER ALCOHOL & CHEMICAL CO    990       Ethyl Alcohol 200 Proof         105.07       134.49  3750.0  ...             0.00            0.00         0.48      -105.07          -inf       0.000000            0.000000
+3            60        ADAMBA IMPORTS INTL INC    771   Bak's Krupnik Honey Liqueur          11.44        14.99   750.0  ...           494.67           37.01       367.52       258.37     36.672675       1.205128            1.579097
+4            60        ADAMBA IMPORTS INTL INC   3401                  Vesica Vodka          11.10        14.99  1750.0  ...             0.00            0.00       367.52       -66.60          -inf       0.000000            0.000000
+
+[5 rows x 18 columns]
+2025-09-10 16:52:02,485 - INFO - Ingesting data ......
+2025-09-10 16:52:02,512 - INFO - Completed

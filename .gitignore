@@ -1,0 +1,11 @@
+# Ignore the SQLite database
+inventory.db
+
+# Ignore raw data folder
+data/
+
+# Ignore Python virtual environment
+venv/
+
+# (Optional) Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
