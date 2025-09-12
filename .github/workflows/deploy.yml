@@ -26,12 +26,18 @@ jobs:
       - name: Install Jupyter tools
         run: |
           python -m pip install --upgrade pip
-          pip install nbconvert jupyter
+          pip install nbconvert
 
-      - name: Convert Notebook to HTML
+      - name: Execute & Convert Notebook to HTML
         run: |
           mkdir -p build
-          jupyter nbconvert --to html vendor_performance_analysis.ipynb --output build/index.html
+          jupyter nbconvert \
+            --to html \
+            --execute \
+            --output index.html \
+            --output-dir build \
+            vendor_performance_analysis.ipynb
+            vendor_performance_analysis.ipynb
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -39,4 +45,5 @@ jobs:
           path: build
 
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
