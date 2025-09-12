@@ -29,11 +29,14 @@ jobs:
         with:
           python-version: "3.10"
           cache: "pip"
+          cache-dependency-path: |
+            requirements.txt
+            pyproject.toml
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install nbconvert jupyter ipykernel
+          pip install nbconvert jupyter
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Determine notebook path
@@ -52,12 +55,11 @@ jobs:
           echo "✅ Notebook found: $NB_PATH"
           echo "NOTEBOOK_PATH=$NB_PATH" >> $GITHUB_ENV
 
-      - name: Execute & Convert Notebook to HTML
+      - name: Convert Notebook to HTML (without execution)
         run: |
           mkdir -p build
           jupyter nbconvert \
             --to html \
-            --execute \
             --template lab \
             --output index.html \
             --output-dir build \
@@ -65,7 +67,6 @@ jobs:
 
       - name: Force Dark Theme in Export
         run: |
-          # Inject custom CSS into the HTML to force dark mode
           cat <<'CSS' > build/custom-dark.css
           body, html {
             background: #1e1e1e !important;
@@ -78,7 +79,6 @@ jobs:
           a { color: #569cd6 !important; }
           CSS
 
-          # Add CSS link to HTML
           sed -i 's#</head>#<link rel="stylesheet" href="custom-dark.css"></head>#' build/index.html
 
       - name: Upload artifact
@@ -89,3 +89,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
