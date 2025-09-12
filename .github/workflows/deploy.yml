@@ -1,0 +1,42 @@
+name: Publish Vendor Performance Analysis
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install Jupyter tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install nbconvert jupyter
+
+      - name: Convert Notebook to HTML
+        run: |
+          mkdir -p build
+          jupyter nbconvert --to html vendor_performance_analysis.ipynb --output build/index.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
