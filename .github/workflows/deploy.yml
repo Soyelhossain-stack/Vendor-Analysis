@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      notebook_path:
+        description: "Path to notebook to publish"
+        required: false
+        default: "vendor_performance_analysis.ipynb"
 
 permissions:
   contents: read
@@ -22,6 +28,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
+          cache: "pip"
 
       - name: Install dependencies
         run: |
@@ -29,15 +36,21 @@ jobs:
           pip install nbconvert jupyter ipykernel
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Execute & Convert Notebook to HTML
+      - name: Determine notebook path
+        id: notebook
         run: |
-          mkdir -p build
-          jupyter nbconvert \
-            --to html \
-            --execute \
-            --output index.html --output-dir build \
-            ./vendor_performance_analysis.ipynb
+          NB_PATH="${{ github.event.inputs.notebook_path }}"
+          if [ -z "$NB_PATH" ]; then
+            NB_PATH="vendor_performance_analysis.ipynb"
           fi
+
+          if [ ! -f "$NB_PATH" ]; then
+            echo "❌ ERROR: Notebook '$NB_PATH' not found."
+            exit 1
+          fi
+
+          echo "✅ Notebook found: $NB_PATH"
+          echo "NOTEBOOK_PATH=$NB_PATH" >> $GITHUB_ENV
 
       - name: Execute & Convert Notebook to HTML
         run: |
@@ -45,8 +58,28 @@ jobs:
           jupyter nbconvert \
             --to html \
             --execute \
-            --output build/index.html \
-            "$NOTEBOOK_FILE"
+            --template lab \
+            --output index.html \
+            --output-dir build \
+            "$NOTEBOOK_PATH"
+
+      - name: Force Dark Theme in Export
+        run: |
+          # Inject custom CSS into the HTML to force dark mode
+          cat <<'CSS' > build/custom-dark.css
+          body, html {
+            background: #1e1e1e !important;
+            color: #d4d4d4 !important;
+          }
+          .jp-Notebook, .jp-OutputArea, .jp-RenderedHTMLCommon {
+            background: #1e1e1e !important;
+            color: #d4d4d4 !important;
+          }
+          a { color: #569cd6 !important; }
+          CSS
+
+          # Add CSS link to HTML
+          sed -i 's#</head>#<link rel="stylesheet" href="custom-dark.css"></head>#' build/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
